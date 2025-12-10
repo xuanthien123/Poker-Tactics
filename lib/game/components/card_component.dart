@@ -40,7 +40,9 @@ class CardComponent extends SpriteComponent
   Vector2? moveTarget;
   double moveSpeed = 40; // chỉnh tùy ý
 
-  Vector2? originalPosition;
+
+  Vector2? originalPosition; // lưu vị trí cũ khi bắt đầu drag
+  Vector2? subMoveTarget; // lưu vị trí target hiện tại khi drag
 
   @override
   void update(double dt) {
@@ -193,10 +195,10 @@ class CardComponent extends SpriteComponent
     super.onDragStart(info);
     isDragging = true;
     elevationTarget = 1; // bắt đầu nâng lên
+    originalPosition = subMoveTarget?.clone();
     moveTarget = null;
     // raise priority so the card renders on top while dragging
     // lưu lại vị trí cũ
-    originalPosition = position.clone();
     priority = 1000;
   }
 
@@ -227,7 +229,7 @@ class CardComponent extends SpriteComponent
 
       if (slotRect.contains(Offset(cardCenter.x, cardCenter.y))) {
         // => Đặt target position, KHÔNG đặt position trực tiếp
-        moveTarget = Vector2(
+        moveTarget = subMoveTarget = Vector2(
           slot.position.x + (slot.size.x - size.x) / 2,
           slot.position.y + (slot.size.y - size.y) / 2,
         );
@@ -237,7 +239,7 @@ class CardComponent extends SpriteComponent
       }
     }
     // không vào slot nào cả, trả về vị trí cũ
-    moveTarget = originalPosition;
+    moveTarget = subMoveTarget = originalPosition;
     priority = 0;
   }
 }
