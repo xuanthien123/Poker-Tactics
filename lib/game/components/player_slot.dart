@@ -11,7 +11,7 @@ class PlayerSlot extends PositionComponent {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    size = Vector2(70, 100);
+    size = Vector2(62, 86);
     anchor = Anchor.topLeft;
   }
 

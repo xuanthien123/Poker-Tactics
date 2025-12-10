@@ -1,4 +1,6 @@
 import 'package:flame/game.dart';
+import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 import 'components/card_component.dart';
 import 'components/deck_component.dart';
 import 'components/player_slot.dart';
@@ -10,6 +12,13 @@ class CardTableGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    
+    // Add a blue background component that covers the entire screen
+    final background = RectangleComponent(
+      size: size,
+      paint: Paint()..color = const Color.fromARGB(255, 88, 132, 5), // Dark green-blue (poker table color)
+    );
+    addAll([background]);
     // Layout 10 player slots in a 5x2 grid and a single draggable card.
     final cols = 5;
     final rows = 2;
@@ -37,7 +46,7 @@ class CardTableGame extends FlameGame {
     add(deck);
 
     // Add a single draggable card in the deck area
-    final card = CardComponent(rank: 1, suit: '♠')..position = Vector2(30, 25);
+    final card = CardComponent(rank: 'a', suit: 'bich')..position = Vector2(30, 25);
     add(card);
   }
 }
