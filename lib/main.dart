@@ -8,12 +8,10 @@ import 'package:poker_tactics/services/route.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Allow all orientations (auto-rotate like normal games)
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ]);
+  // await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
   // Enable immersive fullscreen (hides system bars)
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  // AutoOrientation.landscapeAutoMode();
 
   runApp(const MyApp());
 }

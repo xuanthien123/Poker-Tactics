@@ -48,5 +48,7 @@ class CardTableGame extends FlameGame {
     // Add a single draggable card in the deck area
     final card = CardComponent(rank: 'a', suit: 'bich')..position = Vector2(30, 25);
     add(card);
+    final card2 = CardComponent(rank: '2', suit: 'bich')..position = Vector2(30, 25);
+    add(card2);
   }
 }

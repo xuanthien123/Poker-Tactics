@@ -66,6 +66,9 @@ class Assets {
   static const String queen_ro = '${_cardsBasePath}q_ro.png';
   static const String king_ro = '${_cardsBasePath}k_ro.png';
 
+  static const String arrowSelecting = '${_cardsBasePath}arrow_selecting.png';
+  static const String cardHolder = '${_cardsBasePath}card_holder.png';
+
   /// Get card asset by rank and suit.
   /// Rank: 'a', '2'-'10', 'j', 'q', 'k'
   /// Suit: 'bich' (spades), 'chuong' (clubs), 'co' (diamonds), 'ro' (hearts)
